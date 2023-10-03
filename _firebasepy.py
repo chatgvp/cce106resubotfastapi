@@ -11,7 +11,7 @@ ref = db.reference('/')
 def add(add_data, candidate1):
     try:
         bucket = storage.bucket()
-        blob = bucket.blob(candidate1.filename + ".pdf")
+        blob = bucket.blob(candidate1.filename)
         candidate1.file.seek(0)
         blob.upload_from_file(candidate1.file)
         expiration_time = datetime.utcnow() + timedelta(hours=24)
